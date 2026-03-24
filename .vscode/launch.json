@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Backend: FastAPI",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "main:app",
+                "--reload",
+                "--port",
+                "8000"
+            ],
+            "cwd": "${workspaceFolder}/gwo/fastapi_backend",
+            "jinja": true,
+            "python": "${workspaceFolder}/gwo/fastapi_backend/venv/Scripts/python.exe"
+        },
+        {
+            "name": "Frontend: React (Chrome)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}/gwo/frontend"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Full Project (Backend + Frontend)",
+            "configurations": [
+                "Backend: FastAPI",
+                "Frontend: React (Chrome)"
+            ]
+        }
+    ]
+}

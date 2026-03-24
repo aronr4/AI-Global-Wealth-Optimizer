@@ -1,0 +1,58 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Backend (FastAPI)",
+            "type": "shell",
+            "command": ".\\venv\\Scripts\\python.exe",
+            "args": [
+                "-m",
+                "uvicorn",
+                "main:app",
+                "--reload"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\gwo\\fastapi_backend"
+            },
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "group": "backend"
+            }
+        },
+        {
+            "label": "Start Frontend (React)",
+            "type": "shell",
+            "command": "npm",
+            "args": [
+                "run",
+                "dev"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\gwo\\frontend"
+            },
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "group": "frontend"
+            }
+        },
+        {
+            "label": "🚀 Start Full Project",
+            "dependsOn": [
+                "Start Backend (FastAPI)",
+                "Start Frontend (React)"
+            ],
+            "dependsOrder": "parallel",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

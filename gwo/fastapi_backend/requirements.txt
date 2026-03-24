@@ -14,3 +14,4 @@ faiss-cpu
 sentence-transformers
 scikit-learn
 pandas
+email-validator

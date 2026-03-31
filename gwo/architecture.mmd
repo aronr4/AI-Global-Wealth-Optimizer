@@ -1,0 +1,42 @@
+graph TD
+    %% User Interface Layer
+    subgraph Frontend [Presentation Layer: React JS / Vite]
+        UI[User Dashboard Interface]
+        Auth[Google OAuth Integration]
+        Vis[Recharts Data Visualization]
+    end
+
+    %% API & Logic Layer
+    subgraph Backend [Logic & Processing Layer: Python FastAPI]
+        API[FastAPI Router & Endpoints]
+        Scraper[Automated Web Scrapers: BeautifulSoup]
+        ML[ML Engine: Scikit-Learn RAG]
+    end
+
+    %% Data & External Systems
+    subgraph Data [Data & External Integration Layer]
+        DB[(MongoDB: NoSQL Data Lake)]
+        YF(Yahoo Finance: Live Stock API)
+        Retail(E-Commerce: Amazon/Flipkart)
+    end
+
+    %% Connections
+    User((User)) -->|Interacts| UI
+    UI <-->|JSON Payloads| API
+    Auth -->|Token Verification| API
+    Vis <-->|Render Charts| UI
+
+    API <-->|Pydantic Validated Read/Write| DB
+    API -->|Triggers| Scraper
+    API -->|Queries| ML
+
+    Scraper -->|Extracts Deals| Retail
+    ML -->|Fetches History & Prices| YF
+    ML -->|Writes Vectors| DB
+    Scraper -->|Writes Discounts| DB
+
+    %% Styling
+    classDef layerBox fill:#f9f9f9,stroke:#333,stroke-width:2px;
+    class Frontend layerBox;
+    class Backend layerBox;
+    class Data layerBox;

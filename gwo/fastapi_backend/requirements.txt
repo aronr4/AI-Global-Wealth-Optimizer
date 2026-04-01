@@ -1,7 +1,7 @@
 fastapi
 uvicorn
-motor
-pymongo
+motor[srv]
+pymongo[srv]
 passlib[bcrypt]
 python-jose[cryptography]
 pydantic
@@ -16,3 +16,5 @@ scikit-learn
 pandas
 email-validator
 geopy
+certifi
+dnspython

@@ -27,8 +27,8 @@ app = FastAPI(
 # Enable CORS for React Frontend Integration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # Temporarily permissive for local dev debugging
-    allow_credentials=True,
+    allow_origins=["*"], # Permissive for frontend integration
+    allow_credentials=False, # Must be False when using wildcard allow_origins
     allow_methods=["*"],
     allow_headers=["*"],
 )
